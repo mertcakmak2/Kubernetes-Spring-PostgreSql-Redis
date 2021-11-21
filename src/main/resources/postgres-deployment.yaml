@@ -14,20 +14,6 @@ spec:
   clusterIP: None
 
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: postgres-pv-claim
-  labels:
-    app: postgres
-    tier: database
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -72,10 +58,3 @@ spec:
           ports:
             - containerPort: 5432
               name: postgres
-          volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: postgres-persistance-storage
-      volumes:
-        - name: postgres-persistance-storage
-          persistentVolumeClaim:
-            claimName: postgres-pv-claim

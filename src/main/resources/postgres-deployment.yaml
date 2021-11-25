@@ -6,12 +6,14 @@ metadata:
     app: postgres
     tier: database
 spec:
+  type: NodePort
   ports:
-    - port: 5432
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
   selector:
     app: postgres
     tier: database
-  clusterIP: None
 
 ---
 apiVersion: apps/v1

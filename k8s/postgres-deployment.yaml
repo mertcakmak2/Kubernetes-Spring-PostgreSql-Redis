@@ -40,22 +40,25 @@ spec:
         - name: postgres
           image: postgres
           imagePullPolicy: "IfNotPresent"
-          env:
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-credentials
-                  key: postgres_user
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-credentials
-                  key: postgres_password
-            - name: POSTGRES_DB
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-conf
-                  key: name
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+#          env:
+#            - name: POSTGRES_USER
+#              valueFrom:
+#                secretKeyRef:
+#                  name: postgres-credentials
+#                  key: postgres_user
+#            - name: POSTGRES_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: postgres-credentials
+#                  key: postgres_password
+#            - name: POSTGRES_DB
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: postgres-conf
+#                  key: name
 
           ports:
             - containerPort: 5432

@@ -11,6 +11,7 @@ spec:
     - protocol: TCP
       port: 5432
       targetPort: 5432
+      nodePort: 31315
   selector:
     app: postgres
     tier: database

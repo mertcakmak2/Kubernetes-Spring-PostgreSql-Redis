@@ -23,7 +23,7 @@ spec:
   selector:
     matchLabels:
       app: springboot-postgres-k8s
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -34,24 +34,24 @@ spec:
           image: mertcakmak2/springboot-postgres-k8s
           ports:
             - containerPort: 9090
-          env:
-            - name: DB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-conf
-                  key: host
-            - name: DB_NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-conf
-                  key: name
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-credentials
-                  key: postgres_user
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-credentials
-                  key: postgres_password
+#          env:
+#            - name: DB_HOST
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: postgres-conf
+#                  key: host
+#            - name: DB_NAME
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: postgres-conf
+#                  key: name
+#            - name: POSTGRES_USER
+#              valueFrom:
+#                secretKeyRef:
+#                  name: postgres-credentials
+#                  key: postgres_user
+#            - name: POSTGRES_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: postgres-credentials
+#                  key: postgres_password

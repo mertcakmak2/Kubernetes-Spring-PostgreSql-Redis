@@ -8,11 +8,3 @@ data:
   POSTGRES_DB: employeedb
   POSTGRES_USER: rootuser
   POSTGRES_PASSWORD: rootpassword
-
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: postgres-conf
-#data:
-#  host: postgres
-#  name: employeedb

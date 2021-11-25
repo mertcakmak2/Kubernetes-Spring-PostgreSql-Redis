@@ -7,8 +7,8 @@ metadata:
 spec:
   ports:
     - nodePort: 30163
-      port: 9090
-      targetPort: 9090
+      port: 8081
+      targetPort: 8081
       protocol: TCP
   selector:
     app: springboot-postgres-k8s
@@ -33,7 +33,7 @@ spec:
         - name: springboot-postgres-k8s
           image: mertcakmak2/springboot-postgres-k8s
           ports:
-            - containerPort: 9090
+            - containerPort: 8081
 #          env:
 #            - name: DB_HOST
 #              valueFrom:

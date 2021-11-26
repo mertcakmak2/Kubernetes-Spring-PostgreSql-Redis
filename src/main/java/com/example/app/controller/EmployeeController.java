@@ -3,6 +3,7 @@ package com.example.app.controller;
 import com.example.app.model.Employee;
 import com.example.app.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,7 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "")
+    @CacheEvict(cacheNames = "employee_list", allEntries = true)
     public Employee saveEmployee(@RequestBody Employee employee){
         return employeeRepository.save(employee);
     }

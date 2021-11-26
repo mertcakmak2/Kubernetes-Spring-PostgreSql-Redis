@@ -32,6 +32,7 @@ spec:
       containers:
         - name: springboot-postgres-k8s
           image: mertcakmak2/springboot-postgres-k8s
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 8081
 #          env:

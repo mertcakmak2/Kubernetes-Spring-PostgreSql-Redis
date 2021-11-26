@@ -1,4 +1,4 @@
-# Kubernetes-Spring-PostgreSql
+# Kubernetes-Spring-PostgreSql-Redis
 
 mvn package install -DskipTests=true
 
